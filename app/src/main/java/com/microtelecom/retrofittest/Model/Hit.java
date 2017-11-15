@@ -4,7 +4,9 @@ package com.microtelecom.retrofittest.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Hit {
+import java.io.Serializable;
+
+public class Hit implements Serializable {
 
     @SerializedName("previewHeight")
     @Expose

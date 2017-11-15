@@ -38,5 +38,6 @@ dependencies {
     compile 'me.jessyan:progressmanager:1.5.0'
     compile 'com.github.bumptech.glide:okhttp3-integration:4.2.0'
     compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:percent:26.1.0'
 
 }

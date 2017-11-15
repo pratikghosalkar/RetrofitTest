@@ -54,14 +54,11 @@ public class MainActivity extends AppCompatActivity {
     int image_position = 1;
     PixaBayModel pixaBayModel;
 
-
     WallpaperManager wallpaperManager;
     Bitmap bitmap1, bitmap2;
     DisplayMetrics displayMetrics; //to find screen dimensions
     int width, height; //to find screen dimensions
     BitmapDrawable bitmapDrawable;
-    Button downloadButton;
-    String url = "your wallpaper url";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,18 +68,23 @@ public class MainActivity extends AppCompatActivity {
         // When building OkHttpClient, the OkHttpClient.Builder() is passed to the with() method to initialize the configuration
         OkHttpClient = ProgressManager.getInstance().with(new OkHttpClient.Builder())
                 .build();
-        getAllImages();
 
+        context = MainActivity.this;
+
+        initViews();
+
+        getAllImages();
+    }
+
+    private void initViews() {
         mGlideProgress = findViewById(R.id.glide_progress);
         imageView = findViewById(R.id.imageView);
         button = findViewById(R.id.button);
         buttonSetWallpaper = findViewById(R.id.button2);
-        context = MainActivity.this;
-//        loadImage();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                clearDiskCache();
                 mGlideProgress.setProgress(2);
                 if (image_position == 20) {
                     current_page = current_page + 1;
@@ -119,19 +121,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    private int getImagePosition() {
-
-        if (image_position == 1) {
-            return image_position;
-        } else
-            return image_position + 1;
     }
 
     private void loadImage() {
-//        String url = "https://source.unsplash.com/random/" + getRandomNo();
 
         RequestListener<Bitmap> requestListener = new RequestListener<Bitmap>() {
             @Override
