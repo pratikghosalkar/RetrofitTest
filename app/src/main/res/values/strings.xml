@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">RetrofitTest</string>
+    <string name="app_name">Wallpaper</string>
+    <string name="permission_storage_rationale">Storage permission is needed to store the wallpaper.</string>
+    <string name="button_allow">Allow</string>
+    <string name="button_deny">Deny</string>
+    <string name="permission_storage_denied">Storage permission was denied. Please consider granting it in order to access the storage!</string>
+    <string name="permission_storage_neverask">Storage permissions were denied with never ask again.</string>
 </resources>

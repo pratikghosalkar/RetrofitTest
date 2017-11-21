@@ -35,18 +35,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             super(itemView);
             mImg = itemView.findViewById(R.id.item_img);
 
-            mImg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("images", (Serializable) data);
-                    bundle.putInt("position", getAdapterPosition());
+            mImg.setOnClickListener(view -> {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("images", (Serializable) data);
+                bundle.putInt("position", getAdapterPosition());
 
-                    FragmentTransaction ft = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
-                    SlideshowDialogFragment newFragment = SlideshowDialogFragment.newInstance();
-                    newFragment.setArguments(bundle);
-                    newFragment.show(ft, "slideshow");
-                }
+                FragmentTransaction ft = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
+                SlideshowDialogFragment newFragment = SlideshowDialogFragment.newInstance();
+                newFragment.setArguments(bundle);
+                newFragment.show(ft, "slideshow");
             });
         }
 
@@ -71,7 +68,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         ((MyItemHolder) holder).mImg.layout(0, 0, 0, 0);
         GlideApp.with(context).load(data.get(position).getPreviewURL())
-                .thumbnail(0.5f)
                 .override(200, 200)
                 .transition(withCrossFade())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

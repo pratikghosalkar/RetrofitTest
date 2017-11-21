@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.microtelecom.retrofittest"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -15,6 +15,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -39,5 +43,8 @@ dependencies {
     compile 'com.github.bumptech.glide:okhttp3-integration:4.2.0'
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.support:percent:26.1.0'
+
+    compile 'com.github.hotchemi:permissionsdispatcher:3.0.1'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1'
 
 }
