@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
             android:name=".BaseApplication"
@@ -16,20 +17,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="909f428a86fec15285036e4d2a2d0848dc55fc8a"/>
 
+        <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".GalleryActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <service
                 android:name=".WallPaperChangerService"
-                android:enabled="true"></service>
+                android:enabled="true"/>
 
         <receiver
                 android:name=".ServiceRestartBroadcastReceiver"
@@ -43,6 +42,22 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
+
+        <meta-data
+                android:name="firebase_crashlytics_collection_enabled"
+                android:value="false"/>
+
+        <activity
+                android:name=".LoginActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name"
+                android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

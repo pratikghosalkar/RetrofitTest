@@ -58,6 +58,17 @@ public class GalleryActivity extends AppCompatActivity {
         initViews();
 
         getAllImages();
+
+//        Button crashButton = new Button(this);
+//        crashButton.setText("Crash!");
+//        crashButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                Crashlytics.getInstance().crash(); // Force a crash
+//            }
+//        });
+//        addContentView(crashButton,
+//                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                        ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
     private void initViews() {

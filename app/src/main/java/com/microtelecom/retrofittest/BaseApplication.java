@@ -17,6 +17,9 @@ package com.microtelecom.retrofittest;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 import me.jessyan.progressmanager.ProgressManager;
 import okhttp3.OkHttpClient;
 
@@ -27,6 +30,14 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
+
+        final Fabric fabric = new Fabric.Builder(this)
+                .kits(new Crashlytics())
+                .debuggable(true)           // Enables Crashlytics debugger
+                .build();
+        Fabric.with(fabric);
+
         this.mOkHttpClient = ProgressManager.getInstance().with(new OkHttpClient.Builder())
                 .build();
     }
