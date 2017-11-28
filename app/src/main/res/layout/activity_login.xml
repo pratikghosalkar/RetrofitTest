@@ -18,7 +18,8 @@
             android:textStyle="bold"
             android:textSize="50sp"
             android:gravity="center"
-            android:text="@string/dummy_content"/>
+            android:text="@string/dummy_content"
+            android:fontFamily="@font/croissant_one"/>
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->

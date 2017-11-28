@@ -249,6 +249,7 @@ public class SlideshowDialogFragment extends DialogFragment {
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
             //handle error
+            e.printStackTrace();
             Toast.makeText(getActivity(), "Error occurred while changing wallpaper.", Toast.LENGTH_SHORT).show();
         }
     }
